@@ -23,26 +23,32 @@ export const getAllTransactions = (req: Request, res: Response): Response | unde
   }
 }
 
+enum TransactionType {
+  income,
+  expense
+}
+
 interface Transaction {
   name: string
   amount: number
+  type: TransactionType
   category: string
   timestamp?: string
 }
 
 export const addTransaction = (req: Request, res: Response): Response | undefined => {
-  const { name, amount, category, timestamp }: Transaction = req.body
+  const { name, amount, type, category, timestamp }: Transaction = req.body
 
-  if (name === undefined || amount === undefined || category === undefined || timestamp === undefined) {
+  if (name === undefined || amount === undefined || type === undefined || category === undefined || timestamp === undefined) {
     return res.status(400).json({
       success: false,
-      message: 'Send transaction name, amount, category & timestamp'
+      message: 'Send transaction name, amount, type, category & timestamp'
     })
   }
 
   try {
     connection.query(
-      INSERT_TRANSACTION, [name, amount, category, timestamp],
+      INSERT_TRANSACTION, [name, amount, type, category, timestamp],
       (err, results) => {
         if (err !== null) {
           return internalServerError(res)
