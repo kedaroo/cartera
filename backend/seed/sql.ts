@@ -6,6 +6,6 @@ export const createTransactionsTableSQL = `CREATE TABLE transactions (
     name VARCHAR(255) NOT NULL,
     amount FLOAT NOT NULL,
     category VARCHAR(255) NOT NULL,
-    created_at DATETIME NOT NULL,
+    timestamp DATETIME NOT NULL,
     PRIMARY KEY (id)
   );`
