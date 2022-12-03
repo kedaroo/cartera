@@ -3,7 +3,11 @@ import Avatar from "../../assets/photo.jpg";
 // @ts-ignore
 import { ReactComponent as PlusIcon } from "../../assets/plus-solid.svg";
 
-export default function TopGreeting(): JSX.Element {
+interface Props {
+  toggleModal: (arg: boolean) => void;
+}
+
+export default function TopGreeting({ toggleModal }: Props): JSX.Element {
   return (
     <div className="flex h-16 items-center justify-between">
       <div className="flex items-center space-x-2">
@@ -17,7 +21,10 @@ export default function TopGreeting(): JSX.Element {
           <p className="text-2xl font-bold text-gray-700">Kedar Basutkar</p>
         </div>
       </div>
-      <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-white p-2">
+      <div
+        onClick={() => toggleModal(true)}
+        className="flex h-10 w-10 items-center justify-center rounded-2xl bg-white p-2"
+      >
         <PlusIcon />
       </div>
     </div>
