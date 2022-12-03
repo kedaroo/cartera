@@ -17,7 +17,7 @@ export default function TransactionList({ transactions }: Props): JSX.Element {
           <AnalyticsIcon />
         </div>
       </div>
-      <div className="flex flex-col-reverse overflow-scroll">
+      <div className="flex flex-col-reverse">
         {transactions.map((transaction) => {
           return (
             <TransactionItem
