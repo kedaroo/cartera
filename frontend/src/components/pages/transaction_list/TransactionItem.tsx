@@ -19,10 +19,13 @@ export default function TransactionItem({
   Icon,
 }: Props): JSX.Element {
   const sign = type === AmountType.income ? "+" : "-";
+
   return (
-    <div className="my-6 flex justify-between rounded-2xl bg-white px-6 py-4">
+    <div className="my-6 flex justify-between rounded-2xl bg-white px-6 py-4 shadow-sm">
       <div className="flex items-center space-x-3">
-        <div className="h-14 w-14 rounded-full border border-black p-2">
+        <div
+          className={`icon ${category} flex h-14 w-14 items-center justify-center rounded-full bg-orange-200 p-4 shadow-md`}
+        >
           <Icon />
         </div>
         <p className="text-lg font-semibold">{title}</p>

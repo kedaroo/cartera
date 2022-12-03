@@ -9,14 +9,10 @@ import { ReactComponent as MoneyIcon } from "../../../assets/sack-dollar-solid.s
 import TransactionItem from "./TransactionItem";
 import { AmountType } from "../../../types/types";
 
-// category: string;
-//   title: string;
-//   amount: number;
-//   date: Date;
-
 export enum TransactionCategories {
-  food,
-  petrol,
+  food = "orange",
+  petrol = "red",
+  salary = "green",
 }
 
 export default function TransactionList(): JSX.Element {
@@ -45,7 +41,7 @@ export default function TransactionList(): JSX.Element {
         Icon={PetrolIcon}
       />
       <TransactionItem
-        category={TransactionCategories.petrol}
+        category={TransactionCategories.salary}
         title="Fable Stipend"
         amount={22200}
         date={new Date(2022, 12, 1)}
