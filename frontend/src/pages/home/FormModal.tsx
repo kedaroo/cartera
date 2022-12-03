@@ -32,7 +32,7 @@ export default function FormModal({ toggleModal }: Props) {
   };
 
   return (
-    <div className="fixed inset-0 flex flex-col items-center justify-center bg-gray-200 p-6">
+    <div className="fixed inset-0 mx-auto flex max-w-md flex-col items-center justify-center bg-gray-200 p-6">
       <div
         onClick={() => toggleModal(false)}
         className="absolute top-8 right-8 flex h-12 w-12 items-center justify-center rounded-xl bg-white p-4"
