@@ -5,7 +5,7 @@ import { ReactComponent as PlusIcon } from "../../assets/plus-solid.svg";
 
 export default function TopGreeting(): JSX.Element {
   return (
-    <div className="flex h-16 items-center justify-between ">
+    <div className="flex h-16 items-center justify-between">
       <div className="flex items-center space-x-2">
         <img
           className="h-14 w-14 rounded-full object-cover"

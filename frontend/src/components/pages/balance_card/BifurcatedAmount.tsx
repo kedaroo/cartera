@@ -20,7 +20,7 @@ export default function BifurcatedAmount({ amount, type }: Props): JSX.Element {
       </div>
       <div className="flex flex-col">
         <p>{title}</p>
-        <p className="font-semibold">2,5000,000</p>
+        <p className="font-semibold">{amount}</p>
       </div>
     </div>
   );

@@ -1,21 +1,14 @@
 // @ts-ignore
 import { ReactComponent as AnalyticsIcon } from "../../../assets/chart-pie-solid.svg";
-// @ts-ignore
-import { ReactComponent as FoodIcon } from "../../../assets/utensils-solid.svg";
-// @ts-ignore
-import { ReactComponent as PetrolIcon } from "../../../assets/gas-pump-solid.svg";
-// @ts-ignore
-import { ReactComponent as MoneyIcon } from "../../../assets/sack-dollar-solid.svg";
 import TransactionItem from "./TransactionItem";
-import { AmountType } from "../../../types/types";
+import { Transaction } from "../../../types/types";
+import { IconMap } from "./IconMap";
 
-export enum TransactionCategories {
-  food = "orange",
-  petrol = "red",
-  salary = "green",
+interface Props {
+  transactions: Array<Transaction>;
 }
 
-export default function TransactionList(): JSX.Element {
+export default function TransactionList({ transactions }: Props): JSX.Element {
   return (
     <div className="mt-8">
       <div className="flex items-center justify-between">
@@ -24,30 +17,21 @@ export default function TransactionList(): JSX.Element {
           <AnalyticsIcon />
         </div>
       </div>
-      <TransactionItem
-        category={TransactionCategories.food}
-        title="Ice Cream"
-        amount={30}
-        date={new Date(2022, 12, 2)}
-        type={AmountType.expense}
-        Icon={FoodIcon}
-      />
-      <TransactionItem
-        category={TransactionCategories.petrol}
-        title="Activa Petrol"
-        amount={200}
-        date={new Date(2022, 12, 1)}
-        type={AmountType.expense}
-        Icon={PetrolIcon}
-      />
-      <TransactionItem
-        category={TransactionCategories.salary}
-        title="Fable Stipend"
-        amount={22200}
-        date={new Date(2022, 12, 1)}
-        type={AmountType.income}
-        Icon={MoneyIcon}
-      />
+      <div className="flex flex-col-reverse overflow-scroll">
+        {transactions.map((transaction) => {
+          return (
+            <TransactionItem
+              key={transaction.id}
+              category={transaction.category}
+              name={transaction.name}
+              amount={transaction.amount}
+              timestamp={transaction.timestamp}
+              type={transaction.type}
+              Icon={IconMap.get(transaction.category)}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 }
