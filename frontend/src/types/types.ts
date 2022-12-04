@@ -7,6 +7,7 @@ export enum TransactionCategories {
   food = 'food',
   petrol = 'petrol',
   salary = 'salary',
+  investment = 'investment'
 }
 
 export interface Transaction {
