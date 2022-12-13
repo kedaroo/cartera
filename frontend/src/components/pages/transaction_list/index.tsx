@@ -4,6 +4,7 @@ import TransactionItem from "./TransactionItem";
 import { Transaction } from "../../../types/types";
 import { IconMap } from "./IconMap";
 import EmptyTransactions from "./EmptyTransactions";
+import { Link } from 'react-router-dom'
 
 interface Props {
   transactions: Array<Transaction>;
@@ -14,9 +15,9 @@ export default function TransactionList({ transactions }: Props): JSX.Element {
     <div className="mt-8">
       <div className="flex items-center justify-between">
         <p className="text-xl font-bold text-gray-700">Transactions</p>
-        <div className="h-10 w-10 rounded-2xl bg-white p-2">
+        <Link to='/transactions' className="h-10 w-10 rounded-2xl bg-white p-2">
           <AnalyticsIcon />
-        </div>
+        </Link>
       </div>
       {transactions.length ? (
         <div className="flex flex-col-reverse">
